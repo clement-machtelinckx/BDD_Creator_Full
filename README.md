@@ -6,7 +6,19 @@ cd front_bdd_creator
 
 npm install 
 
-# go back on the previous folder
+# go back on the folder BDD_Creator_FUll
+
+cd ..
+
+# same for the back
+
+cd BDD_Creator
+
+# install composer dependecie
+
+composer install
+
+# go back on the folder BDD_Creator_FUll
 
 cd ..
 

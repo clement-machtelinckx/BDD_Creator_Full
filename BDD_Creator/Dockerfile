@@ -10,15 +10,18 @@ COPY . /var/www/html
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+
 # Install any needed packages specified in composer.json
 RUN composer install --no-dev
 
 # Install the PDO MySQL extension
-RUN docker-php-ext-install pdo_mysql && apt-get update
+RUN docker-php-ext-install pdo_mysql && apt-get update 
 
 # Install default-mysql-client (dernier ajout a del si sa chie)
 # RUN apt-get install -y default-mysql-client
 
+
+ENV PATH=$PATH:/usr/bin
 # Expose port 80 to the outside world
 EXPOSE 80
 
