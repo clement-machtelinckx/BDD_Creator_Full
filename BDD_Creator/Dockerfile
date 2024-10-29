@@ -20,7 +20,7 @@ RUN docker-php-ext-install pdo_mysql && apt-get update
 # Install default-mysql-client (dernier ajout a del si sa chie)
 # RUN apt-get install -y default-mysql-client
 
-
+# SET PATH TO MYSQL
 ENV PATH=$PATH:/usr/bin
 # Expose port 80 to the outside world
 EXPOSE 80
