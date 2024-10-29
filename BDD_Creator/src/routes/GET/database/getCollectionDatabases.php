@@ -14,6 +14,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $db = new Database($HOST, $USERNAME, $PASSWORD);
     $db->connect();
     $databases = $db->getCollectionDatabases();
+    if ($databases === []) {
+        $db->createDatabase("db1");
+        $databases[] = "db1";
+        return $databases;
+    }
     echo json_encode($databases);
 } else {
     echo json_encode(["result" => "error", "message" => "Invalid request method"]);
