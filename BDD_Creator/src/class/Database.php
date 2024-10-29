@@ -275,6 +275,10 @@ class Database
             if ('sys' === $databaseName) continue;
             $filteredDatabases[] = $databaseName;
         }
+        if (empty($filteredDatabases)) {
+            $this->createDatabase('test');
+            $filteredDatabases[] = 'test';
+        }
         return $filteredDatabases;
         // return $databases;
     }
