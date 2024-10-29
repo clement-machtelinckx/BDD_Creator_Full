@@ -2,7 +2,7 @@ version: '3'
 services:
   php-api:
     build:
-      context: C:/project/BDD_Creator
+      context: ./BDD_Creator
     ports:
       - "80:80"
     volumes:
@@ -12,12 +12,12 @@ services:
       - mysql
   react-frontend:
     build:
-      context: C:/project/front_bdd_creator
+      context: ./front_bdd_creator
     ports:
       - "3000:3000"
     volumes:
       - ./front_bdd_creator:/app
-      # - /app/node_modules
+      - ./front_bdd_creator/node_modules:/app/node_modules
     depends_on:
       - php-api
     environment:
