@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $databases = $db->getCollectionDatabases();
     if ($databases === []) {
         $db->createDatabase("db1");
-        $databases[] = "db1";
+        $databases[] = $db->getCollectionDatabases();
         return $databases;
     }
     echo json_encode($databases);
